@@ -1,4 +1,4 @@
-# PDF Maestro 📄👑
+# PDF Maestro
 
 *Read this in other languages: [English](README_en.md), [Español](README.md).*
 
@@ -6,20 +6,20 @@
 
 ---
 
-## 🚀 Características Principales
+## Características Principales
 
-*   **🔒 100% Privado y Local:** Tus documentos nunca salen de tu ordenador. Todo el procesamiento se realiza de forma local para garantizar la máxima seguridad y privacidad.
-*   **➕ Unificar PDF:** Une múltiples archivos PDF en un solo documento en segundos.
-*   **✂️ Dividir PDF:** Separa páginas de un archivo PDF o extrae rangos específicos.
-*   **🔄 Convertir:** Convierte imágenes a PDF y viceversa de forma sencilla.
-*   **📉 Comprimir PDF:** Reduce el tamaño de tus archivos PDF sin perder calidad notable.
-*   **💧 Marca de Agua:** Añade marcas de agua personalizadas para proteger tus documentos.
-*   **🛡️ Seguridad PDF:** Protege tus archivos con contraseñas o elimina restricciones de lectura.
-*   **🔲 Generador de QR Pro:** Crea códigos QR personalizados en alta resolución (1200x1200px) con tu logotipo en el centro, ideales para impresión y uso comercial.
+*   **100% Privado y Local:** Tus documentos nunca salen de tu ordenador. Todo el procesamiento se realiza de forma local para garantizar la máxima seguridad y privacidad.
+*   **Unificar PDF:** Une múltiples archivos PDF en un solo documento en segundos.
+*   **Dividir PDF:** Separa páginas de un archivo PDF o extrae rangos específicos.
+*   **Convertir:** Convierte imágenes a PDF y viceversa de forma sencilla.
+*   **Comprimir PDF:** Reduce el tamaño de tus archivos PDF sin perder calidad notable.
+*   **Marca de Agua:** Añade marcas de agua personalizadas para proteger tus documentos.
+*   **Seguridad PDF:** Protege tus archivos con contraseñas o elimina restricciones de lectura.
+*   **Generador de QR Pro:** Crea códigos QR personalizados en alta resolución (1200x1200px) con tu logotipo en el centro, ideales para impresión y uso comercial.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 *   **Electron:** Framework para crear aplicaciones de escritorio nativas con HTML, CSS y JavaScript.
 *   **pdf-lib:** Biblioteca robusta para la manipulación y edición de documentos PDF.
@@ -27,7 +27,7 @@
 
 ---
 
-## 💻 Instalación y Desarrollo
+##Instalación y Desarrollo
 
 Si quieres ejecutar el proyecto en tu entorno local o contribuir al desarrollo:
 
