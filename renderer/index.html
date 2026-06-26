@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Maestro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="blob-3"></div>
+
+<!-- Titlebar -->
+<div class="titlebar">
+  <div class="titlebar-left">
+    <img src="../assets/icon.png" class="titlebar-logo">
+    <span class="titlebar-title">PDF Maestro</span>
+  </div>
+  <div class="titlebar-controls">
+    <button class="titlebar-btn" id="btn-min" title="Minimizar">&#8211;</button>
+    <button class="titlebar-btn" id="btn-max" title="Maximizar">&#9633;</button>
+    <button class="titlebar-btn close" id="btn-close" title="Cerrar">&#10005;</button>
+  </div>
+</div>
+
+<div class="app-layout">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-section-label">Herramientas</div>
+    <a href="index.html" class="nav-item active">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div> Inicio
+    </a>
+    <a href="merge.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div> Unificar PDF
+    </a>
+    <a href="split.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg></div> Dividir PDF
+    </a>
+    <a href="convert.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></div> Convertir
+    </a>
+    
+    <a href="compress.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div> Comprimir PDF
+    </a>
+    
+    <a href="qr.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div> Generar QR
+    </a>
+    <a href="security.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div> Seguridad
+    </a>
+    <div class="sidebar-section-label">Más</div>
+    <a href="history.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div> Historial
+    </a>
+    <div class="sidebar-bottom">
+    <div class="sidebar-badge">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+        <div>
+          <div class="sidebar-badge-title">100% Privado</div>
+          <div class="sidebar-badge-sub">Sin internet</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="page-header">
+      <h1>Bienvenido a PDF Maestro</h1>
+      <p>Todas tus herramientas de PDF, sin límites, sin internet, sin publicidad.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(99,102,241,0.1);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-label">Archivos procesados</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(34,197,94,0.1);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" id="stat-merges">0</div>
+          <div class="stat-label">PDFs unificados</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(245,158,11,0.1);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" id="stat-splits">0</div>
+          <div class="stat-label">PDFs divididos</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(96,165,250,0.1);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" id="stat-converts">0</div>
+          <div class="stat-label">Conversiones</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div>
+      <div class="section-label">¿Qué deseas hacer?</div>
+      <div class="tool-grid">
+        <a href="merge.html" class="tool-card" style="--color: #6366f1">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-merge" viewBox="0 0 40 40" fill="none">
+              <g class="mg-l"><rect x="2" y="11" width="13" height="16" rx="2" stroke="#a5b4fc" stroke-width="2" fill="rgba(99,102,241,0.07)"/><line x1="5" y1="16" x2="12" y2="16" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round"/><line x1="5" y1="20" x2="12" y2="20" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round"/></g>
+              <g class="mg-r"><rect x="25" y="11" width="13" height="16" rx="2" stroke="#a5b4fc" stroke-width="2" fill="rgba(99,102,241,0.07)"/><line x1="28" y1="16" x2="35" y2="16" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round"/><line x1="28" y1="20" x2="35" y2="20" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round"/></g>
+              <g class="mg-arr"><path d="M16 19.5 H24" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/><path d="M21.5 16.5 L24.5 19.5 L21.5 22.5" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+              <circle class="mg-flash" cx="20" cy="19.5" r="4" fill="#fff" />
+            </svg>
+          </div>
+          <h3>Unificar PDFs</h3>
+          <p>Combina múltiples archivos PDF en uno solo. Arrastra para reordenar las páginas antes de unir.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <a href="split.html" class="tool-card" style="--color: #f59e0b">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-scissors" viewBox="0 0 40 40" fill="none">
+              <g class="blade-top">
+                <circle cx="10" cy="30" r="4" stroke="#fbbf24" stroke-width="2"/>
+                <line x1="13" y1="27" x2="33" y2="7" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <g class="blade-bottom">
+                <circle cx="10" cy="10" r="4" stroke="#fbbf24" stroke-width="2"/>
+                <line x1="13" y1="13" x2="33" y2="33" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <circle cx="20" cy="20" r="2.5" fill="#f59e0b"/>
+            </svg>
+          </div>
+          <h3>Dividir PDF</h3>
+          <p>Extrae páginas o rangos específicos de un PDF. Define rangos como "1-3, 5, 7-9".</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <a href="convert.html" class="tool-card" style="--color: #22c55e">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-convert" viewBox="0 0 40 40" fill="none">
+              <path d="M20 9 A11 11 0 0 1 31 25" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M31 25 L27 21 M31 25 L35 21" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 31 A11 11 0 0 1 9 15" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M9 15 L13 19 M9 15 L5 19" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Convertir Documentos</h3>
+          <p>Convierte entre PDF, PNG, JPG y TXT. Soporta imágenes a PDF y PDF a imágenes.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <a href="compress.html" class="tool-card" style="--color: #ef4444">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-compress" viewBox="0 0 40 40" fill="none">
+              <g class="comp-box">
+                <rect x="12" y="6" width="16" height="28" rx="2" stroke="#fca5a5" stroke-width="2" fill="rgba(239, 68, 68, 0.08)"/>
+                <line x1="16" y1="12" x2="24" y2="12" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="16" y1="18" x2="24" y2="18" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="16" y1="24" x2="20" y2="24" stroke="#fca5a5" stroke-width="1.5" stroke-linecap="round"/>
+              </g>
+              <path class="arr-l" d="M3 20 h5 m-2 -2 l2 2 l-2 2" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path class="arr-r" d="M37 20 h-5 m2 -2 l-2 2 l2 2" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Comprimir PDF</h3>
+          <p>Reduce el peso de tus archivos PDF optimizando su estructura interna sin perder calidad visual.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <a href="qr.html" class="tool-card" style="--color: #8b5cf6">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-qr" viewBox="0 0 40 40" fill="none">
+              <rect x="8" y="8" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <rect x="22" y="8" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <rect x="8" y="22" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <path d="M22 22h4v4h-4zM28 22h4v4h-4zM22 28h4v4h-4z" fill="#8b5cf6"/>
+              <rect x="11" y="11" width="4" height="4" fill="#8b5cf6"/>
+              <rect x="11" y="25" width="4" height="4" fill="#8b5cf6"/>
+              <line class="qr-scanner" x1="4" y1="8" x2="36" y2="8" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Generar Código QR</h3>
+          <p>Crea códigos QR hermosos, personalizables y de alta resolución al instante.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <!-- NEW SECURITY CARD -->
+        <a href="security.html" class="tool-card" style="--color: #ef4444">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-lock" viewBox="0 0 40 40" fill="none">
+              <path class="lock-shackle" d="M12 18V12a8 8 0 0116 0v6" stroke="#fca5a5" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="8" y="18" width="24" height="16" rx="3" fill="#ef4444"/>
+              <circle cx="20" cy="26" r="2.5" fill="#450a0a"/>
+            </svg>
+          </div>
+          <h3>Seguridad PDF</h3>
+          <p>Añade contraseña robusta a tus PDF o quítales la protección fácilmente.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+        <!-- NEW WATERMARK CARD -->
+        <a href="watermark.html" class="tool-card" style="--color: #60a5fa">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-watermark" viewBox="0 0 40 40" fill="none" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 4 C12 14, 8 20, 8 26 A12 12 0 0 0 32 26 C32 20, 28 14, 20 4 Z"/>
+            </svg>
+          </div>
+          <h3>Marca de Agua</h3>
+          <p>Estampa texto o imágenes gigantes sobre todas las páginas de tu PDF.</p>
+          <div class="tool-card-arrow">Abrir herramienta <span>→</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Advantages section -->
+    <div>
+      <div class="section-label">¿Por qué PDF Maestro?</div>
+      <div class="tool-grid">
+        <div class="tool-card" style="cursor:default; --color:#6366f1">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-lock" viewBox="0 0 40 40" fill="none">
+              <defs><clipPath id="shackle-clip"><rect x="0" y="0" width="40" height="19"/></clipPath></defs>
+              <g clip-path="url(#shackle-clip)">
+                <g class="lock-shackle">
+                  <path d="M14 27 L14 13 A6 6 0 0 1 26 13 L26 19" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+                </g>
+              </g>
+              <rect x="10" y="19" width="20" height="14" rx="3" stroke="#fbbf24" stroke-width="2" fill="rgba(251,191,36,0.08)"/>
+              <circle cx="20" cy="25.5" r="2" fill="#fbbf24" opacity="0.9"/>
+              <line x1="20" y1="27.5" x2="20" y2="30" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Totalmente Privado</h3>
+          <p>Tus archivos <strong>nunca abandonan tu computadora</strong>. Sin servidores. Sin nubes. 100% local.</p>
+        </div>
+        <div class="tool-card" style="cursor:default; --color:#22c55e">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-bolt" viewBox="0 0 40 40" fill="none">
+              <path d="M24 7 L13 23 L20 23 L16 33 L28 17 L21 17 Z" stroke="#fbbf24" stroke-width="2" stroke-linejoin="round" fill="rgba(251,191,36,0.15)"/>
+            </svg>
+          </div>
+          <h3>Sin Límites de Tamaño</h3>
+          <p>¿PDF de 500 MB? Sin problema. Sin planes, sin restricciones, sin pagos.</p>
+        </div>
+        <div class="tool-card" style="cursor:default; --color:#f59e0b">
+          <div class="tool-card-icon">
+            <svg class="tool-svg icon-rocket" viewBox="0 0 40 40" fill="none">
+              <path d="M20 8 C15 12 13 20 15 27 L20 30 L25 27 C27 20 25 12 20 8Z" stroke="#a5b4fc" stroke-width="2" fill="rgba(99,102,241,0.12)"/>
+              <circle cx="20" cy="17" r="3" stroke="#a5b4fc" stroke-width="2" fill="rgba(99,102,241,0.2)"/>
+              <path d="M15 27 L11 33 L17 30" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M25 27 L29 33 L23 30" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.5 30 Q20 36 22.5 30" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3>Instantáneo</h3>
+          <p>Procesamiento local ultra rápido. Sin esperas de servidor. Sin publicidad que interrumpa.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent history -->
+    <div>
+      <div class="flex items-center justify-between" style="margin-bottom:12px;">
+        <div class="section-label" style="margin-bottom:0;">Recientes</div>
+        <a href="history.html" class="btn btn-ghost btn-sm">Ver todo →</a>
+      </div>
+      <div id="recent-history"></div>
+    </div>
+  </main>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="app.js"></script>
+<script>
+  // Load stats and recent history
+  (async () => {
+    const history = await window.electronAPI.getHistory();
+    const merges   = history.filter(h => h.type === 'merge').length;
+    const splits   = history.filter(h => h.type === 'split').length;
+    const converts = history.filter(h => h.type === 'convert').length;
+    document.getElementById('stat-total').textContent    = history.length;
+    document.getElementById('stat-merges').textContent   = merges;
+    document.getElementById('stat-splits').textContent   = splits;
+    document.getElementById('stat-converts').textContent = converts;
+
+    const recentEl = document.getElementById('recent-history');
+    if (history.length === 0) {
+      recentEl.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📂</div><h4>Sin operaciones recientes</h4><p>Usa alguna herramienta para empezar</p></div>`;
+    } else {
+      recentEl.innerHTML = history.slice(0, 5).map(h => `
+        <div class="history-item" style="margin-bottom:8px;">
+          <span class="history-type-badge badge-${h.type}">${h.type === 'merge' ? 'Unificar' : h.type === 'split' ? 'Dividir' : 'Convertir'}</span>
+          <div class="file-info">
+            <div class="file-name">${h.description}</div>
+            <div class="file-size">${new Date(h.date).toLocaleString('es-MX')}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+  })();
+</script>
+</body>
+</html>

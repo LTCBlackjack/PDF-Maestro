@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Maestro — Marca de Agua</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blob-2"></div>
+  
+  <div class="titlebar">
+    <div class="titlebar-left">
+      <img src="../assets/icon.png" class="titlebar-logo">
+      <span class="titlebar-title">PDF Maestro — Marca de Agua</span>
+    </div>
+    <div class="titlebar-controls">
+      <button class="titlebar-btn" id="btn-minimize">—</button>
+      <button class="titlebar-btn" id="btn-maximize">◻</button>
+      <button class="titlebar-btn close" id="btn-close">✕</button>
+    </div>
+  </div>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <a href="index.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div> Inicio
+      </a>
+      <a href="merge.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div> Unificar PDF
+      </a>
+      <a href="split.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg></div> Dividir PDF
+      </a>
+      <a href="convert.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></div> Convertir
+      </a>
+      <a href="compress.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div> Comprimir PDF
+      </a>
+      <a href="qr.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div> Generar QR
+      </a>
+      <a href="security.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div> Seguridad
+      </a>
+      <a href="watermark.html" class="nav-item active">
+        <div class="nav-icon">💧</div> Marca de Agua
+      </a>
+      <div class="sidebar-section-label">Más</div>
+      <a href="history.html" class="nav-item">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div> Historial
+      </a>
+      <div class="sidebar-bottom">
+        <div class="sidebar-badge">
+          <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+          <div>
+            <div class="sidebar-badge-title">100% Privado</div>
+            <div class="sidebar-badge-sub">Sin internet</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" style="overflow-y: auto;">
+      <div class="page-header">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;">
+          <div class="page-icon-wrap" style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.2); background: rgba(96, 165, 250, 0.05);">
+            <svg class="tool-svg icon-watermark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 4 C12 14, 8 20, 8 26 A12 12 0 0 0 32 26 C32 20, 28 14, 20 4 Z"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Marca de Agua</h1>
+            <p>Estampa texto o imágenes gigantes sobre todas las páginas de tu PDF.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Dropdown/Tabs -->
+      <div class="tabs" style="display:inline-flex; background:rgba(255,255,255,0.05); padding:4px; border-radius:8px; gap:4px; margin-bottom: 16px;">
+        <button class="tab active" data-tab="text" style="background:rgba(255,255,255,0.1); border:none; padding:8px 16px; color:var(--text-secondary); border-radius:6px; cursor:pointer; font-weight:500; font-size:14px; transition:0.2s;">Letras (Texto)</button>
+        <button class="tab" data-tab="image" style="background:transparent; border:none; padding:8px 16px; color:var(--text-secondary); border-radius:6px; cursor:pointer; font-weight:500; font-size:14px; transition:0.2s;">Logo (Imagen)</button>
+      </div>
+
+      <div class="flex gap-24" style="align-items: flex-start;">
+        <!-- Left Column: Upload -->
+        <div style="flex: 1;">
+          <div class="upload-zone" id="drop-zone" style="margin-top:0;">
+            <input type="file" id="file-input" accept=".pdf">
+            <div class="upload-icon">📄</div>
+            <h3>Sube tu PDF</h3>
+            <p>El archivo que recibirá la marca</p>
+          </div>
+          <div id="file-list" class="file-list" style="margin-top: 16px;"></div>
+
+          <!-- Progress -->
+          <div id="progress-container" class="hidden" style="margin-top: 24px;">
+            <div style="margin-bottom:8px;font-size:13px;color:var(--text-secondary);" id="progress-status">Estampando páginas...</div>
+            <div class="progress-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Settings Panel -->
+        <div class="glass-card" style="flex: 1; padding: 24px;">
+          
+          <!-- Text Settings -->
+          <div id="panel-text">
+            <div class="input-group">
+              <label class="input-label">Texto de la marca</label>
+              <input type="text" id="wm-text" class="input" placeholder="Ej: CONFIDENCIAL" value="CONFIDENCIAL">
+            </div>
+            
+            <div class="flex gap-16" style="margin-top: 16px;">
+              <div class="input-group flex-1">
+                <label class="input-label">Color</label>
+                <input type="color" id="wm-color" class="input" value="#9ca3af" style="padding:4px; height: 40px; cursor:pointer;">
+              </div>
+              <div class="input-group flex-1">
+                <label class="input-label">Tamaño (pt)</label>
+                <input type="number" id="wm-size" class="input" value="60" min="10" max="300">
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Settings -->
+          <div id="panel-image" class="hidden">
+            <div class="input-group">
+              <label class="input-label">Sube tu Imagen (PNG o JPG)</label>
+              <input type="file" id="wm-image" class="input" accept="image/png, image/jpeg" style="padding: 10px;">
+              <p style="font-size:12px; color:var(--text-muted); margin-top:4px;">Se recomienda usar PNG con fondo transparente.</p>
+              
+              <!-- Image Preview Block -->
+              <div id="image-preview-container" class="hidden" style="margin-top: 12px; padding: 12px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 8px; text-align: center; background: rgba(0,0,0,0.2);">
+                <img id="wm-image-preview" src="" alt="Vista previa del logo" style="max-width: 100%; max-height: 120px; object-fit: contain;">
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Vista previa del logotipo a estampar</div>
+              </div>
+            </div>
+            <div class="input-group" style="margin-top: 16px;">
+              <label class="input-label">Escala / Tamaño de Imagen</label>
+              <input type="range" id="wm-scale" min="10" max="200" value="50" style="width: 100%;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);">
+                <span>Pequeño</span><span>Gigante</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Common Settings -->
+          <div style="margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;">
+            <div class="input-group">
+              <label class="input-label">Transparencia (Opacidad)</label>
+              <input type="range" id="wm-opacity" min="0" max="100" value="30" style="width: 100%;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);">
+                <span>Casi invisible</span><span>Sólido</span>
+              </div>
+            </div>
+
+            <div class="input-group" style="margin-top: 16px;">
+              <label class="input-label">Rotación (Grados)</label>
+              <input type="range" id="wm-rotation" min="-90" max="90" value="45" style="width: 100%;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted);">
+                <span>-90° (Vertical)</span><span>0° (Horizontal)</span><span>+90° (V)</span>
+              </div>
+            </div>
+            
+            <div class="input-group" style="margin-top: 16px;">
+              <label class="input-label">Posición</label>
+              <select id="wm-position" class="input">
+                <option value="center">Centro</option>
+                <option value="top-left">Esquina Superior Izquierda</option>
+                <option value="top-right">Esquina Superior Derecha</option>
+                <option value="bottom-left">Esquina Inferior Izquierda</option>
+                <option value="bottom-right">Esquina Inferior Derecha</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action -->
+      <div class="flex items-center justify-between mt-auto" style="padding-top: 24px;">
+        <button class="btn btn-ghost" id="btn-clear">Limpiar todo</button>
+        <button class="btn btn-primary btn-lg" id="btn-process" disabled>
+          <span class="btn-text">Estampar PDF</span>
+        </button>
+      </div>
+      
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="app.js"></script>
+  <script src="watermark.js"></script>
+</body>
+</html>

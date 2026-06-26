@@ -1,0 +1,61 @@
+{
+  "name": "pdf-maestro",
+  "version": "1.0.0",
+  "description": "PDF Maestro - Tu herramienta de PDF local, privada y sin límites",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build-installer": "electron-builder --win nsis --x64"
+  },
+  "build": {
+    "appId": "com.pdfmaestro.app",
+    "productName": "PDF Maestro",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeader": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PDF Maestro"
+    },
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "handlers/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "keywords": [
+    "pdf",
+    "merge",
+    "split",
+    "convert",
+    "electron"
+  ],
+  "author": "PDF Maestro",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "qr-code-styling": "^1.9.2"
+  }
+}

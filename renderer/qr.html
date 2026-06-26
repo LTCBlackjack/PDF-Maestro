@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generar Código QR — PDF Maestro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="../node_modules/qr-code-styling/lib/qr-code-styling.js"></script>
+</head>
+<body>
+
+<div class="blob-qr"></div>
+
+<div class="titlebar">
+  <div class="titlebar-left">
+    <img src="../assets/icon.png" class="titlebar-logo">
+    <span class="titlebar-title">PDF Maestro — Generar Código QR</span>
+  </div>
+  <div class="titlebar-controls">
+    <button class="titlebar-btn" id="btn-min">&#8211;</button>
+    <button class="titlebar-btn" id="btn-max">&#9633;</button>
+    <button class="titlebar-btn close" id="btn-close">&#10005;</button>
+  </div>
+</div>
+
+<div class="app-layout">
+  <nav class="sidebar">
+    <div class="sidebar-section-label">Herramientas</div>
+    <a href="index.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div> Inicio</a>
+    <a href="merge.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div> Unificar PDF</a>
+    <a href="split.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg></div> Dividir PDF</a>
+    <a href="convert.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></div> Convertir</a>
+    <a href="compress.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="M8 17l4 4 4-4"></path></svg></div> Comprimir PDF</a>
+    <a href="qr.html" class="nav-item active"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div> Generar QR</a>
+    
+    <a href="security.html" class="nav-item">
+      <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div> Seguridad
+    </a>
+    <div class="sidebar-section-label">Más</div>
+    <a href="history.html" class="nav-item"><div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg></div> Historial</a>
+    <div class="sidebar-bottom">
+    <div class="sidebar-badge">
+        <div class="nav-icon"><svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+        <div>
+          <div class="sidebar-badge-title">100% Privado</div>
+          <div class="sidebar-badge-sub">Sin internet</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;">
+        <div class="page-icon-wrap" style="--color: #8b5cf6; background: rgba(139, 92, 246, 0.1);">
+          <svg class="tool-svg icon-qr" viewBox="0 0 40 40" fill="none">
+            <g class="qr-blocks">
+              <rect x="8" y="8" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <rect x="22" y="8" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <rect x="8" y="22" width="10" height="10" rx="2" stroke="#c4b5fd" stroke-width="2" fill="rgba(139, 92, 246, 0.1)"/>
+              <path d="M22 22h4v4h-4zM28 22h4v4h-4zM22 28h4v4h-4z" fill="#8b5cf6"/>
+              <rect x="11" y="11" width="4" height="4" fill="#8b5cf6"/>
+              <rect x="11" y="25" width="4" height="4" fill="#8b5cf6"/>
+            </g>
+            <line class="qr-scanner" x1="4" y1="8" x2="36" y2="8" stroke="#34d399" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <h1 style="color:var(--text-primary)">Generador de QR</h1>
+          <p>Crea códigos QR hermosos, personalizables y de alta resolución al instante.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-24 align-start qr-layout">
+      <!-- Configuración Left Column -->
+      <div class="flex-1 flex flex-col gap-16">
+        
+        <!-- Tab selector URL vs vCard -->
+        <div class="tabs" style="display:inline-flex; background:rgba(255,255,255,0.05); padding:4px; border-radius:8px; gap:4px; margin-bottom: 8px; align-self: flex-start;">
+          <button class="tab active" data-tab="url" style="background:transparent; border:none; padding:8px 16px; color:var(--text-secondary); border-radius:6px; cursor:pointer; font-weight:500; font-size:14px; transition:0.2s;">Enlace / Texto</button>
+          <button class="tab" data-tab="vcard" style="background:transparent; border:none; padding:8px 16px; color:var(--text-secondary); border-radius:6px; cursor:pointer; font-weight:500; font-size:14px; transition:0.2s;">Contacto (vCard)</button>
+        </div>
+
+        <!-- URL/Text Input -->
+        <div id="tab-url" class="tab-content active">
+          <div class="input-group">
+            <label class="input-label">Contenido del QR</label>
+            <textarea id="qr-data-url" class="input" rows="3" placeholder="https://mi-empresa.com o cualquier texto..."></textarea>
+          </div>
+        </div>
+
+        <!-- vCard Input -->
+        <div id="tab-vcard" class="tab-content hidden flex flex-col gap-12">
+          <div class="flex gap-12">
+            <div class="input-group flex-1">
+              <label class="input-label">Nombre(s)</label>
+              <input type="text" id="vc-nombre" class="input">
+            </div>
+            <div class="input-group flex-1">
+              <label class="input-label">Apellidos</label>
+              <input type="text" id="vc-apellidos" class="input">
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Teléfono Móvil</label>
+            <input type="tel" id="vc-tel" class="input">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Correo Electrónico</label>
+            <input type="email" id="vc-email" class="input">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Sitio Web / Perfil</label>
+            <input type="url" id="vc-web" class="input">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Empresa</label>
+            <input type="text" id="vc-empresa" class="input">
+          </div>
+        </div>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:8px 0;">
+
+        <!-- Plantillas Rápidas -->
+        <div class="input-group">
+          <label class="input-label">Estilos Predeterminados</label>
+          <div class="flex gap-8 flex-wrap" id="preset-container">
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="classic">Clásico</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="modern-blue">Moderno Azul (Okha)</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="vcard-purple">vCard Morado</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="heart-pink">Corazón Rosa</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="spotify-green">Verde Musical</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="luxury-gold">Oro Elegante</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="cyber-neon">Cyber Neon Oscuro</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="sunset-orange">Atardecer Naranja</button>
+            <button class="btn btn-secondary btn-sm preset-btn" data-preset="maestro">Estilo PDF Maestro</button>
+          </div>
+        </div>
+
+        <!-- Personalización Avanzada Toggle -->
+        <details class="qr-advanced-panel">
+          <summary>🛠️ Personalización Avanzada</summary>
+          <div class="flex flex-col gap-12" style="margin-top:12px;">
+            
+            <div class="flex gap-12">
+              <div class="input-group flex-1">
+                <label class="input-label">Color Principal</label>
+                <div class="flex gap-8 align-center">
+                  <input type="color" id="qr-color-dots" value="#000000" class="color-picker">
+                  <span class="text-sm color-hex">#000000</span>
+                </div>
+              </div>
+              <div class="input-group flex-1">
+                <label class="input-label">Color de Fondo</label>
+                <div class="flex gap-8 align-center">
+                  <input type="color" id="qr-color-bg" value="#ffffff" class="color-picker">
+                  <span class="text-sm color-hex">#ffffff</span>
+                </div>
+                <label style="display:flex; align-items:center; gap:6px; margin-top:4px; font-size:12px; color:var(--text-secondary); cursor:pointer;">
+                  <input type="checkbox" id="qr-bg-transparent"> Fondo transparente
+                </label>
+              </div>
+            </div>
+
+            <div class="flex gap-12">
+              <div class="input-group flex-1">
+                <label class="input-label">Forma de los Puntos</label>
+                <select id="qr-shape-dots" class="input">
+                  <option value="square">Cuadrado Clásico</option>
+                  <option value="dots">Puntos Redondos</option>
+                  <option value="rounded">Redondeado Suave</option>
+                  <option value="extra-rounded">Extra Redondeado (Blobs)</option>
+                  <option value="classy">Refinado (Classy)</option>
+                  <option value="classy-rounded">Refinado Redondeado</option>
+                </select>
+              </div>
+              <div class="input-group flex-1">
+                <label class="input-label">Esquinas (Ojos)</label>
+                <select id="qr-shape-corners" class="input">
+                  <option value="square">Cuadrado</option>
+                  <option value="dot">Punto</option>
+                  <option value="extra-rounded">Extra Redondeado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Logotipo Central</label>
+              <div class="flex gap-8">
+                <button class="btn btn-secondary btn-sm flex-1" id="btn-upload-logo">📁 Subir Imagen</button>
+                <button class="btn btn-ghost btn-sm" id="btn-clear-logo" style="display:none">✕ Quitar</button>
+              </div>
+              <input type="file" id="logo-input" accept="image/png, image/jpeg, image/svg+xml" style="display:none">
+            </div>
+
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Preview Right Column -->
+      <div class="qr-preview-panel">
+        <div class="qr-canvas-wrap" id="qr-canvas-container">
+          <!-- QR renders here -->
+        </div>
+        
+        <div class="flex gap-8 justify-center" style="margin-top:20px;">
+          <button class="btn btn-primary" id="btn-download-png">↓ Descargar PNG</button>
+          <button class="btn btn-secondary" id="btn-download-svg">↓ Descargar SVG</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="app.js"></script>
+<script src="qr.js"></script>
+</body>
+</html>
