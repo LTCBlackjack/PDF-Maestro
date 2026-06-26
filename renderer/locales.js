@@ -110,7 +110,53 @@ window.setLang = function(lang) {
   location.reload();
 };
 
+window.setTheme = function(theme) {
+  localStorage.setItem('app_theme', theme);
+  applyTheme(theme);
+  updateThemeIcon();
+};
+
+function applyTheme(theme) {
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+}
+
+function updateThemeIcon() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const lightIcon = document.querySelector('.theme-icon-light');
+  const darkIcon = document.querySelector('.theme-icon-dark');
+  if (lightIcon && darkIcon) {
+    lightIcon.style.display = isLight ? 'inline' : 'none';
+    darkIcon.style.display = isLight ? 'none' : 'inline';
+  }
+}
+
+// Ensure theme is applied immediately before DOM is fully loaded if possible
+let initialTheme = localStorage.getItem('app_theme');
+if (!initialTheme) {
+  initialTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+applyTheme(initialTheme);
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Inject Theme Toggle Button
+  const sidebarBottom = document.querySelector('.sidebar-bottom');
+  if (sidebarBottom) {
+    const themeBtnHtml = `
+      <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+        <button onclick="setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light')" class="btn btn-secondary btn-sm" style="padding: 4px 10px; font-size: 14px; border-radius: 20px; width: 45px; height: 30px; display: flex; align-items: center; justify-content: center;" title="Cambiar Tema">
+          <span class="theme-icon-light" style="display: none;">🌙</span>
+          <span class="theme-icon-dark">☀️</span>
+        </button>
+      </div>
+    `;
+    sidebarBottom.insertAdjacentHTML('afterbegin', themeBtnHtml);
+    updateThemeIcon();
+  }
+
   const lang = localStorage.getItem('app_lang') || 'es';
   if (lang === 'es') return; // Default HTML is in Spanish
 
