@@ -1,5 +1,7 @@
 # PDF Maestro 📄👑
 
+*Read this in other languages: [English](README_en.md), [Español](README.md).*
+
 **PDF Maestro** es una aplicación de escritorio local, privada y sin límites diseñada para gestionar y editar tus archivos PDF de forma rápida y segura, sin depender de conexiones a internet ni servidores externos.
 
 ---
